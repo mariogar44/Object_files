@@ -312,29 +312,6 @@ public class WorksObjects {
         }
     }
 
-    /*    public static void Backup() {
-    File origin = new File("C:\\Users\\Mario\\Desktop\\player.ser");
-    File destination = new File("C:\\Users\\Mario\\Desktop\\Backup\\player_backup.ser");
-    if (origin.exists()) {
-    try {
-    InputStream in = new FileInputStream(origin);
-    OutputStream out = new FileOutputStream(destination);
-    // We use a buffer for the copy (Usamos un buffer para la copia).
-    
-    int len;
-    while ((len = in.read()) > 0) {
-    out.write(len);
-    System.out.println("Completing...");
-    }
-    System.out.println("Backup complete.");
-    in.close();
-    out.close();
-    
-    } catch (IOException ioe) {
-    ioe.printStackTrace();
-    }
-    }
-    }*/
     public static void backup() {
         int i;
         System.out.println("");
@@ -350,15 +327,15 @@ public class WorksObjects {
             Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer_backup.ser");
             try {
                 Files.copy(pPath, pBPath, REPLACE_EXISTING);
-                System.out.println("Users successfully backuped to: " + pBPath);
+                System.out.println("players successfully backuped to: " + pBPath);
             } catch (IOException ex) {
-                System.out.println("Error with the backup of users");
+                System.out.println("Error with the backup of players");
             }
             try {
                 Files.copy(tPath, tBPath, REPLACE_EXISTING);
-                System.out.println("Flights successfully backuped to: " + tBPath);
+                System.out.println("trainers successfully backuped to: " + tBPath);
             } catch (IOException ex) {
-                System.out.println("Error with the backup of flights");
+                System.out.println("Error with the backup of trainers");
             }
             System.out.println("************");
         }
@@ -373,49 +350,25 @@ public class WorksObjects {
         i = pedir.readInt();
         if (i == 1) {
             System.out.println("************");
-           Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
+            Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
             Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player_backup.ser");
             Path tPath = Paths.get("C:\\Users\\Mario\\Desktop\\trainer.ser");
             Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer_backup.ser");
             try {
                 Files.copy(pBPath, pPath, REPLACE_EXISTING);
-                System.out.println("Users successfully restored");
+                System.out.println("players successfully restored");
             } catch (IOException ex) {
-                System.out.println("Error restoring users");
+                System.out.println("Error restoring player");
             }
             try {
                 Files.copy(tBPath, tPath, REPLACE_EXISTING);
-                System.out.println("Flights successfully restored");
+                System.out.println("Trainers successfully restored");
             } catch (IOException ex) {
-                System.out.println("Error restoring flights");
+                System.out.println("Error restoring trainers");
             }
             System.out.println("************");
         }
     }
-
-    /*    public static void Restore() {
-    File origin = new File("C:\\Users\\Mario\\Desktop\\Backup\\player_backup.ser");
-    File destination = new File("C:\\Users\\Mario\\Desktop\\Backup\\player.ser");
-    if (origin.exists()) {
-    try {
-    InputStream in = new FileInputStream(origin);
-    OutputStream out = new FileOutputStream(destination);
-    // We use a buffer for the copy (Usamos un buffer para la copia).
-    
-    int len;
-    while ((len = in.read()) > 0) {
-    out.write(len);
-    System.out.println("Completing...");
-    }
-    System.out.println("Restore complete.");
-    in.close();
-    out.close();
-    
-    } catch (IOException ioe) {
-    ioe.printStackTrace();
-    }
-    }
-    }*/
 
     public static class MiObjectOutputStream extends ObjectOutputStream {
         //constructor recibe parametros
