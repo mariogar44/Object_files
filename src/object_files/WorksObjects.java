@@ -6,23 +6,15 @@
 package object_files;
 
 import java.io.EOFException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.StreamCorruptedException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,12 +30,12 @@ public class WorksObjects {
 
         try {
             player pl = new player(4);
-            MiObjectOutputStream obj;
-            try (FileOutputStream fis = new FileOutputStream("C:\\Users\\Mario\\Desktop\\player.ser", true)) {
-                obj = new MiObjectOutputStream(fis);
+            
+            try  (MiObjectOutputStream obj = new MiObjectOutputStream(new FileOutputStream("C:\\Users\\Mario\\Desktop\\player.ser", true))) {
                 obj.writeObject(pl);
+
             }
-            obj.close();
+            
             System.out.println("The player has been add");
         } catch (IOException ex) {
             Logger.getLogger(WorksObjects.class.getName()).log(Level.SEVERE, null, ex);
@@ -179,12 +171,13 @@ public class WorksObjects {
 
         try {
             trainer tr = new trainer(4);
-            MiObjectOutputStream obj;
-            try (FileOutputStream fis = new FileOutputStream("C:\\Users\\Mario\\Desktop\\trainer.ser", true)) {
-                obj = new MiObjectOutputStream(fis);
+           
+            try (MiObjectOutputStream obj = new MiObjectOutputStream(new FileOutputStream("C:\\Users\\Mario\\Desktop\\trainer.ser", true))) {
+                
                 obj.writeObject(tr);
+               
             }
-            obj.close();
+           
             System.out.println("The trainer has been add");
         } catch (IOException ex) {
             Logger.getLogger(WorksObjects.class.getName()).log(Level.SEVERE, null, ex);
@@ -322,9 +315,9 @@ public class WorksObjects {
         if (i == 1) {
             System.out.println("************");
             Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
-            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player.ser");
+            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\backup\\player.ser");
             Path tPath = Paths.get("C:\\Users\\Mario\\Desktop\\trainer.ser");
-            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer.ser");
+            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\backup\\trainer.ser");
             try {
                 Files.copy(pPath, pBPath, REPLACE_EXISTING);
                 System.out.println("players successfully backuped to: " + pBPath);
@@ -351,9 +344,9 @@ public class WorksObjects {
         if (i == 1) {
             System.out.println("************");
             Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
-            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player.ser");
+            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\backup\\player.ser");
             Path tPath = Paths.get("C:\\Users\\Mario\\Desktop\\trainer.ser");
-            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer.ser");
+            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\backup\\trainer.ser");
             try {
                 Files.copy(pBPath, pPath, REPLACE_EXISTING);
                 System.out.println("players successfully restored");
