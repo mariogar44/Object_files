@@ -322,9 +322,9 @@ public class WorksObjects {
         if (i == 1) {
             System.out.println("************");
             Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
-            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player_backup.ser");
+            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player.ser");
             Path tPath = Paths.get("C:\\Users\\Mario\\Desktop\\trainer.ser");
-            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer_backup.ser");
+            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer.ser");
             try {
                 Files.copy(pPath, pBPath, REPLACE_EXISTING);
                 System.out.println("players successfully backuped to: " + pBPath);
@@ -351,9 +351,9 @@ public class WorksObjects {
         if (i == 1) {
             System.out.println("************");
             Path pPath = Paths.get("C:\\Users\\Mario\\Desktop\\player.ser");
-            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player_backup.ser");
+            Path pBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\player.ser");
             Path tPath = Paths.get("C:\\Users\\Mario\\Desktop\\trainer.ser");
-            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer_backup.ser");
+            Path tBPath = Paths.get("C:\\Users\\Mario\\Desktop\\Backup\\trainer.ser");
             try {
                 Files.copy(pBPath, pPath, REPLACE_EXISTING);
                 System.out.println("players successfully restored");
